@@ -1,3 +1,4 @@
+
 public class List {
 
     private Node first;
@@ -36,19 +37,17 @@ public class List {
         size++;
     }
 
-    public void update(char chr) {
-        Node current = first;
-        while (current != null) {
-            if (current.data.chr == chr) {
-                current.data.count++;
-                return;
-            }
-            current = current.next;
+public void update(char chr) {
+    Node current = first;
+    while (current != null) {
+        if (current.data.chr == chr) {
+            current.data.count++;
+            return;
         }
-        // שינוי קריטי: הוספה לסוף הרשימה כדי לשמור על סדר ההופעה המקורי
-        addLast(chr); 
+        current = current.next;
     }
-
+    addFirst(chr); 
+}
     public int indexOf(char chr) {
         Node current = first;
         int index = 0;
