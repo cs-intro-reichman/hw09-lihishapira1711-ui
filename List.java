@@ -1,8 +1,8 @@
-
+/** Represents a linked list of CharData objects. */
 public class List {
 
-    private Node first;
-    private int size;
+    private Node first; 
+    private int size;   
 
     public List() {
         first = null;
@@ -23,31 +23,19 @@ public class List {
         size++;
     }
 
-    public void addLast(char chr) {
-        Node newNode = new Node(new CharData(chr));
-        if (first == null) {
-            first = newNode;
-        } else {
-            Node current = first;
-            while (current.next != null) {
-                current = current.next;
+    public void update(char chr) {
+        Node current = first;
+        while (current != null) {
+            if (current.data.chr == chr) {
+                current.data.count++;
+                return;
             }
-            current.next = newNode;
+            current = current.next;
         }
-        size++;
+        // שימוש ב-addFirst קריטי לסנכרון עם ה-Seed והטסטר
+        addFirst(chr);
     }
 
-public void update(char chr) {
-    Node current = first;
-    while (current != null) {
-        if (current.data.chr == chr) {
-            current.data.count++;
-            return;
-        }
-        current = current.next;
-    }
-    addFirst(chr); 
-}
     public int indexOf(char chr) {
         Node current = first;
         int index = 0;
