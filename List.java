@@ -13,7 +13,6 @@ public class List {
         return size;
     }
 
-    /** הפונקציה שהייתה חסרה וגרמה לשגיאה בטסטר */
     public CharData getFirst() {
         if (first == null) return null;
         return first.data;
@@ -25,19 +24,17 @@ public class List {
         size++;
     }
 
-    public void update(char chr) {
-        Node current = first;
-        while (current != null) {
-            if (current.data.chr == chr) {
-                current.data.count++;
-                return;
-            }
-            current = current.next;
+  public void update(char chr) {
+    Node current = first;
+    while (current != null) {
+        if (current.data.chr == chr) {
+            current.data.count++;
+            return;
         }
-        // שימוש ב-addFirst קריטי לסנכרון עם ה-Seed והטסטר
-        addFirst(chr);
+        current = current.next;
     }
-
+    addFirst(chr); 
+}
     public int indexOf(char chr) {
         Node current = first;
         int index = 0;
