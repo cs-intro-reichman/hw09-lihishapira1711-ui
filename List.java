@@ -13,8 +13,10 @@ public class List {
         return size;
     }
 
+    /** הפונקציה שהייתה חסרה וגרמה לשגיאה בטסטר */
     public CharData getFirst() {
-        return (first != null) ? first.data : null;
+        if (first == null) return null;
+        return first.data;
     }
 
     public void addFirst(char chr) {

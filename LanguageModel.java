@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 public class LanguageModel {
-
     private int windowLength;
     private HashMap<String, List> CharDataMap; 
     private Random randomGenerator;
@@ -70,7 +69,6 @@ public class LanguageModel {
     public String generate(String initialText, int textLength) {
         if (initialText.length() < windowLength) return initialText;
         StringBuilder output = new StringBuilder(initialText);
-        
         int totalTargetLength = textLength + initialText.length();
         while (output.length() < totalTargetLength) {
             String window = output.substring(output.length() - windowLength);
@@ -84,7 +82,7 @@ public class LanguageModel {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        // מיון המפתחות של ה-HashMap כדי לעבור את טסט ההשוואה (Train)
+        // חייב למיין את המפתחות כדי ש-HashMap יעבור את ה-Train Test
         ArrayList<String> keys = new ArrayList<>(CharDataMap.keySet());
         Collections.sort(keys);
         for (String key : keys) {
